@@ -7,6 +7,7 @@ Array.prototype.forEach.call(
 			"click",
 			function () {
 				var self = this;
+				
 				Array.prototype.filter
 					.call(document.getElementsByName(this.name), function (filterEl) {
 						return self !== filterEl;
@@ -14,6 +15,8 @@ Array.prototype.forEach.call(
 					.forEach(function (otherEl) {
 						delete otherEl.dataset.check;
 					});
+
+				
 				if (this.dataset.hasOwnProperty("check")) {
 					this.checked = false;
 					delete this.dataset.check;
@@ -29,7 +32,7 @@ Array.prototype.forEach.call(
 fetch("https://api.npoint.io/f991be1021f14a094d2a")
 	.then((res) => res.json())
 	.then((data) => {
-		console.log(data);
+		//console.log(data);
 		//var str = JSON.stringify(data);
 		//console.log(str);
 		data.forEach((item) => {
