@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel = "icon" type = "image/png" href = "https://cdn-icons-png.flaticon.com/512/1320/1320468.png">
 	<script src="main.js"></script>
 	<link href="style.css" rel="stylesheet">
 	<title>Spy x Family</title>
@@ -43,5 +44,35 @@
 		<p>created and designed by <a href='http://github.com/viuh9997' target="_blank">@viuh9997</a></p>
 	</span>
 </section>
+	<script>
+		Array.prototype.forEach.call(
+	document.querySelectorAll("[type=radio]"),
+	function (radio) {
+		radio.addEventListener(
+			"click",
+			function () {
+				var self = this;
+				
+				Array.prototype.filter
+					.call(document.getElementsByName(this.name), function (filterEl) {
+						return self !== filterEl;
+					})
+					.forEach(function (otherEl) {
+						delete otherEl.dataset.check;
+					});
+
+				
+				if (this.dataset.hasOwnProperty("check")) {
+					this.checked = false;
+					delete this.dataset.check;
+				} else {
+					this.dataset.check = "";
+				}
+			},
+			false
+		);
+	}
+);
+	</script>
 </body>
 </html>
